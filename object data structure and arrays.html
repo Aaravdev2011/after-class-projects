@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Objects and Arrays</title>
+</head>
+
+<body>
+    <h2>JavaScript Objects Data Structure and Arrays</h2>
+
+    <script>
+        // Use const for objects and arrays that won't be reassigned
+        const student = {
+            name: 'Riya',
+            age: 12, // Kept as a number instead of a string
+            grade: 7, // Lowercased for consistency
+            hobbies: 'Drawing',
+            fav_sport: 'Cricket'
+        };
+
+        const colors = ["white", "black", "red", "green", "blue"];
+
+        // Output student info
+        document.write("Student name is: " + student.name + "<br>");
+        document.write("Student favorite sport is: " + student.fav_sport + "<br><br>");
+
+        // Output array operations with corrected spelling
+        document.write("Before popping, the colors are: " + colors.join(" ^ ") + "<br>");
+        document.write("My favorite color is: " + colors[3] + "<br>");
+
+        colors.pop(); // Removes "blue"
+
+        document.write("After popping, the colors are: " + colors.join(" * ") + "<br>");
+    </script>
+</body>
+
+</html>
