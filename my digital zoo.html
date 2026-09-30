@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Digital Aquarium Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            text-align: center;
+            color: #112233;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        #aquarium {
+            width: 420px;
+            border: 3px solid darkblue;
+            border-radius: 12px;
+            background-color: white;
+            margin: 20px auto;
+            padding: 15px;
+        }
+
+        .tank {
+            border: 2px solid deepskyblue;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 12px;
+            background-color: #f0f8ff;
+            text-align: left;
+        }
+
+        .marine-life {
+            font-weight: bold;
+            color: darkcyan;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 22px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #output {
+            width: 420px;
+            border: 2px dashed darkblue;
+            border-radius: 10px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            padding: 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Digital Aquarium Manager</h1>
+
+    <p>
+        Use JavaScript and the DOM to explore aquatic animals, tanks, parent nodes,
+        child nodes, and sibling nodes.
+    </p>
+
+    <div id="aquarium">
+
+        <div class="tank" id="sharkTank">
+            <h2>Shark Tank</h2>
+            <p>Animal: <span class="marine-life">Shark</span></p>
+        </div>
+
+        <div class="tank" id="dolphinTank">
+            <h2>Dolphin Tank</h2>
+            <p>Animal: <span class="marine-life">Dolphin</span></p>
+        </div>
+
+        <div class="tank" id="octopusTank">
+            <h2>Octopus Tank</h2>
+            <p>Animal: <span class="marine-life">Octopus</span></p>
+        </div>
+
+    </div>
+
+    <button onclick="manageAquarium()">Manage Aquarium</button>
+
+    <div id="output">
+        Aquarium information will appear here.
+    </div>
+
+    <script>
+        function manageAquarium() {
+
+            // HTML DOM: Selecting elements from the webpage
+            let aquarium = document.getElementById("aquarium");
+            let sharkTank = document.getElementById("sharkTank");
+            let dolphinTank = document.getElementById("dolphinTank");
+            let octopusTank = document.getElementById("octopusTank");
+            let output = document.getElementById("output");
+
+            // The DOM Tree: aquarium is the parent container of all marine tanks
+            let parentNodeName = sharkTank.parentNode.id;
+
+            // Parent, Child, and Sibling Nodes
+            let firstChildTank = aquarium.children[0].id;
+            let secondChildTank = aquarium.children[1].id;
+            let nextSiblingTank = sharkTank.nextElementSibling.id;
+            let previousSiblingTank = octopusTank.previousElementSibling.id;
+
+            // Types of Nodes
+            let elementNodeType = sharkTank.nodeType;
+            let textNodeType = sharkTank.firstChild.nodeType;
+
+            // JavaScript and the DOM: Changing content and style
+            sharkTank.style.backgroundColor = "#d0e1fd";
+            dolphinTank.style.backgroundColor = "#d1ecf1";
+            octopusTank.style.backgroundColor = "#e8daf8";
+
+            sharkTank.querySelector("h2").innerHTML = "Updated Shark Tank";
+            dolphinTank.querySelector("h2").innerHTML = "Updated Dolphin Tank";
+            octopusTank.querySelector("h2").innerHTML = "Updated Octopus Tank";
+
+            output.innerHTML =
+                "<strong>DOM Tree Information:</strong><br>" +
+                "Parent of Shark Tank: " + parentNodeName + "<br>" +
+                "First child of Aquarium: " + firstChildTank + "<br>" +
+                "Second child of Aquarium: " + secondChildTank + "<br><br>" +
+
+                "<strong>Sibling Node Information:</strong><br>" +
+                "Next sibling of Shark Tank: " + nextSiblingTank + "<br>" +
+                "Previous sibling of Octopus Tank: " + previousSiblingTank + "<br><br>" +
+
+                "<strong>Types of Nodes:</strong><br>" +
+                "Shark Tank element node type: " + elementNodeType + "<br>" +
+                "Shark Tank first child text node type: " + textNodeType + "<br><br>" +
+
+                "<strong>DOM Update:</strong><br>" +
+                "The tank headings and background colours were updated using JavaScript.";
+        }
+    </script>
+
+</body>
+
+</html>
