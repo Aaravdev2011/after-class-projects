@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smart Code Analytics Hub</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: #1e222b;
+            color: #f8f9fa;
+        }
+
+        h1,
+        h3 {
+            color: #a155ff;
+        }
+
+        .card {
+            background-color: #282c34;
+            border: 1px solid #3e4451;
+        }
+
+        .box {
+            background: #1e222b;
+            color: #00e676;
+            border-left: 4px solid #a155ff;
+        }
+
+        .text-muted {
+            color: #abb2bf !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-4">
+
+        <h1 class="mb-1">Smart Code Analytics Hub</h1>
+        <p class="text-muted mb-4">Analyze structural types, cast data values, mutate text blocks, and evaluate safety
+            exceptions in real time.</p>
+
+        <!-- TOPIC 1: typeof -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Type Inspect Engine</h3>
+                <button class="btn btn-primary" onclick="checkTypes()">Inspect Data Types</button>
+                <div id="typeResult" class="box p-3 mt-3 rounded">Initialize engine to evaluate data signatures.</div>
+            </div>
+        </div>
+
+        <!-- TOPIC 2: Type Conversion -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Data Schema Mutation</h3>
+                <button class="btn btn-primary" onclick="convertTypes()">Cast Target Values</button>
+                <div id="convertResult" class="box p-3 mt-3 rounded">Initialize casting matrix to transform data
+                    structures.</div>
+            </div>
+        </div>
+
+        <!-- TOPIC 3: Search and Replace -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">String Sequence Refactor</h3>
+                <p class="text-muted">Target Sequence: I like maths because maths is fun.</p>
+                <button class="btn btn-primary" onclick="replaceText()">Execute Replace</button>
+                <div id="replaceResult" class="box p-3 mt-3 rounded">Awaiting execution parameters to re-index words.
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 4: try/catch -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Fault Isolation Barrier</h3>
+                <button class="btn btn-primary" onclick="catchError()">Trigger Risk Test</button>
+                <div id="errorResult" class="box p-3 mt-3 rounded">Monitoring system stability. Click to test exception
+                    handler.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function checkTypes() {
+            var name = "Riya";
+            var score = 95;
+            var isReady = true;
+
+            document.getElementById("typeResult").innerHTML =
+                "Name: " + typeof name + "<br>" +
+                "Score: " + typeof score + "<br>" +
+                "Is Ready: " + typeof isReady;
+        }
+
+        function convertTypes() {
+            var marksText = "88";
+            var marksNumber = Number(marksText);
+            var age = 12;
+            var ageText = String(age);
+
+            document.getElementById("convertResult").innerHTML =
+                '"88" as a number: ' + marksNumber + "<br>" +
+                "Type: " + typeof marksNumber + "<br><br>" +
+                "12 as text: " + ageText + "<br>" +
+                "Type: " + typeof ageText;
+        }
+
+        function replaceText() {
+            var sentence = "I like maths because maths is fun.";
+            var newSentence = sentence.replace("maths", "coding");
+
+            document.getElementById("replaceResult").innerHTML =
+                "Original: " + sentence + "<br><br>" +
+                "Fixed: " + newSentence;
+        }
+
+        function catchError() {
+            try {
+                var result = totalMarks + 10;
+                document.getElementById("errorResult").innerHTML = "Result: " + result;
+            }
+            catch (error) {
+                document.getElementById("errorResult").innerHTML =
+                    "Oops! An error was caught: " + error.message;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
